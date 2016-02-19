@@ -1,0 +1,29 @@
+ul.river-feeds {
+	list-style: none;
+	margin-left: 0;
+	
+	font-size: 0.8em;
+}
+
+ul.river-feeds .item h2 {
+	font-size: 1em;
+	margin-bottom: 0;
+}
+
+ul.river-feeds .item h3 {
+	font-size: 0.8em;
+	margin-bottom: 0;
+}
+
+ul.river-feeds .item {
+	border-bottom: 1px solid #000;
+	padding: 1em 0;
+}
+
+ul.river-feeds .item:last-of-type {
+	border-bottom: none;
+}
+
+ul.river-feeds .item .metadata {
+	color: #aaa;
+}
