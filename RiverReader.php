@@ -72,7 +72,7 @@ class RiverReader {
 		return $html;
 		
 	}
-	 
+
 	/**
 	 * Remove the padding from a JSONP and make it into a regular JSON string.
 	 *
@@ -83,11 +83,11 @@ class RiverReader {
 	 * @return object The un-padded and decoded JSON
 	 */
 	private function jsonp_decode( $jsonp, $assoc = false ) { // PHP 5.3 adds depth as third parameter to json_decode
-		if ( $jsonp[ 0 ] !== '[' && $jsonp[ 0 ] !== '{') {
-			$jsonp = substr( $jsonp, strpos( $jsonp, '('));
+		if ( $jsonp[0] !== '[' && $jsonp[0] !== '{' ) {
+			$jsonp = substr( $jsonp, strpos( $jsonp, '(' ) );
 		}
-		
-		return json_decode( trim( $jsonp,'();' ), $assoc );
+
+		return json_decode( trim( $jsonp, '();' ), $assoc );
 	}
 
 }
