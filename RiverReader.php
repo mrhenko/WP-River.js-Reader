@@ -7,27 +7,25 @@ class RiverReader {
 	/**
 	 * Fetch the River file from a URL
 	 *
-	 * @param string $url     The URL of the river
+	 * @param string $url The URL of the river
 	 *
 	 * @return BOOL True if a river was successfully loaded, false if not.
 	 *
 	 */
 	public function fetchRiverFromURL( $url ) {
 		if ( isset( $url ) ) {
-			$river = file_get_contents( $url );
-			
-			if ( $river != '' ) {
-				$river = $this->jsonp_decode( $river );
-			
-				$this->river = $river;
-				
+			$body = wp_remote_retrieve_body( wp_remote_get( $url ) );
+
+			if ( $body != '' ) {
+				$this->river = $this->jsonp_decode( $body );
+
 				return true;
 			} else { // If something went wrong
 				return false;
 			}
 		}
 	}
-	
+
 	/**
 	 * Creates and returns the HTML for displaying the river
 	 *
